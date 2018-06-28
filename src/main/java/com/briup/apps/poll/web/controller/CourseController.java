@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -49,6 +50,23 @@ public MsgRespose save(Course course){
 		courseService.save(course);
 		return MsgRespose.success("保存成功！", course);
 	} catch (Exception e) {
+		e.printStackTrace();
+		return MsgRespose.error(e.getMessage());
+	}
+	
+}
+@PostMapping("saveOrUpdateCourse")
+public MsgRespose saveOrUpdateCourse(Course course){
+	try {
+		if(course!=null&&course.getId()!=null){
+			courseService.update(course);
+		}else{
+			courseService.save(course);
+			
+		}
+		return MsgRespose.success("保存或更新成功", null);
+	} catch (Exception e) {
+		
 		e.printStackTrace();
 		return MsgRespose.error(e.getMessage());
 	}

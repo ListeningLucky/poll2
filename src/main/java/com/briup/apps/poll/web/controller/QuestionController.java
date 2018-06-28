@@ -18,6 +18,19 @@ public class QuestionController {
 	@Autowired
 	private IQuestionService questionService;
 
+	
+	@GetMapping("saveOrUpdateQuestion")
+	public MsgRespose saveOrUpdateQuestion(QuestionVM question) {
+		try {
+		
+			return MsgRespose.success("success", question);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgRespose.error(e.getMessage());
+		}
+	}
+
+	
 	@GetMapping("findAllQuestion")
 	public MsgRespose findAllQuestion() {
 		try {

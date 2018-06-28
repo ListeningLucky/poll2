@@ -45,6 +45,7 @@ private CourseMapper courseMapper;
 		// TODO Auto-generated method stub
 		courseMapper.updateByPrimaryKey(course);
 	}
+	
 	@Override
 	public void batchDelete(List<Long> ids) throws Exception {
 		// TODO Auto-generated method stub
@@ -52,5 +53,11 @@ private CourseMapper courseMapper;
 			courseMapper.deleteByPrimaryKey(id);
 		}
 	}
+	@Override
+	public void saveOrUpdate(Course course) throws Exception {
+		
+		
+	}
+	
 	
 }
