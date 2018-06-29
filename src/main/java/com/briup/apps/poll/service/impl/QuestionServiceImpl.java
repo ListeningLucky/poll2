@@ -7,9 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.briup.apps.poll.bean.Options;
 import com.briup.apps.poll.bean.Question;
+import com.briup.apps.poll.bean.Questionnaire;
+import com.briup.apps.poll.bean.QuestionnaireQuestion;
 import com.briup.apps.poll.bean.extend.QuestionVM;
 import com.briup.apps.poll.dao.OptionsMapper;
 import com.briup.apps.poll.dao.QuestionMapper;
+import com.briup.apps.poll.dao.QuestionnaireMapper;
 import com.briup.apps.poll.dao.extend.QuestionVMMapper;
 import com.briup.apps.poll.service.IQuestionService;
 
@@ -24,6 +27,8 @@ public class QuestionServiceImpl implements IQuestionService {
 	private QuestionMapper questionMapper;
 @Autowired
 private QuestionVMMapper questionVMMapper;
+@Autowired
+private QuestionnaireMapper questionanaireMapper;
 @Autowired
 private OptionsMapper optionsMapper;
 	@Override
@@ -66,15 +71,31 @@ private OptionsMapper optionsMapper;
       if(question.getId()!=null){
     	  
       }else{
-    	  
-    	  questionMapper.insert(question);
-    	  long id=question.getId();
-    	  for(Options option:options){
-    		  option.setQuestionId(id); 
-    		  optionsMapper.insert(option);
-    		  
+    	  if(question.getQuestiontype().equals("简答题")){
+    		  questionMapper.insert(question);
+    	  }else{
+    		  questionMapper.insert(question);
+        	  long id=question.getId();
+        	  for(Options option:options){
+        		  option.setQuestionId(id); 
+        		  optionsMapper.insert(option);	  
+        	  }
     	  }
       }
+		
+	}
+
+	@Override
+	public void saveOrUpdate(Questionnaire questionnaire, long[] ids) throws Exception {
+		if(questionnaire.getId()==null){
+			questionanaireMapper.insert(questionnaire);
+			for(long id:ids){
+				QuestionnaireQuestion qq=new QuestionnaireQuestion();
+				qq.setQuestionId(id);
+				qq.setQuestionnaireId(questionnaire.getId());
+				
+			}
+		}
 		
 	}
 }

@@ -2,6 +2,8 @@ package com.briup.apps.poll.dao;
 
 import com.briup.apps.poll.bean.Qq;
 import com.briup.apps.poll.bean.QqExample;
+import com.briup.apps.poll.bean.QuestionnaireQuestion;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -93,4 +95,6 @@ public interface QqMapper {
      * @mbg.generated Mon Jun 25 17:14:39 CST 2018
      */
     int updateByPrimaryKey(Qq record);
+
+	void insert(QuestionnaireQuestion qq);
 }

@@ -17,19 +17,16 @@ import com.briup.apps.poll.util.MsgRespose;
 public class QuestionController {
 	@Autowired
 	private IQuestionService questionService;
-
 	
 	@GetMapping("saveOrUpdateQuestion")
 	public MsgRespose saveOrUpdateQuestion(QuestionVM question) {
-		try {
-		
+		try {		
 			return MsgRespose.success("success", question);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return MsgRespose.error(e.getMessage());
 		}
 	}
-
 	
 	@GetMapping("findAllQuestion")
 	public MsgRespose findAllQuestion() {
@@ -53,7 +50,7 @@ public class QuestionController {
 			return MsgRespose.error("删除失败！");
 		}
 	}
-
+	 
 	@GetMapping(value = "save")
 	public MsgRespose questionAdd(Question question) {
 		try {
@@ -78,6 +75,7 @@ public class QuestionController {
 		}
 
 	}
+	
 	@GetMapping("findAllQuestionVM")
 	public MsgRespose findAllQuestionVM (){
 		try {
