@@ -15,7 +15,7 @@
   	<result column="description" property="description"/>
   	<collection 
   		column="id"
-  		property=questionVMs
+  		property="questionVMs"
   		javaType="ArrayList"
   		ofType="com.briup.apps.poll.bean.extend.QuestionVM"
   		select="com.briup.apps.poll.dao.extend.QuestionVMMapper.selectByQuestionnaireId"></collection>
