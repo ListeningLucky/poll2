@@ -5,13 +5,10 @@ import java.util.List;
 import com.briup.apps.poll.bean.Grade;
 
 public interface IGradeService {
-
-	void save(Grade grade);
-
-	List<Grade> findAll();
-
-	void deleteById(long id);
-
-	void update(Grade grade);
-
+	List<Grade> findAll() throws Exception;
+	Grade findById(long id)throws Exception;
+	List<Grade> query(String keywords)throws Exception;
+	void saveOrUpdate(Grade grade)throws Exception;
+	void deleteById(long id)throws Exception;
+	void batchDelete(List<Long>ids)throws Exception;
 }

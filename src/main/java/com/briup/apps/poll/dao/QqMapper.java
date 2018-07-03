@@ -3,6 +3,7 @@ package com.briup.apps.poll.dao;
 import com.briup.apps.poll.bean.Qq;
 import com.briup.apps.poll.bean.QqExample;
 import com.briup.apps.poll.bean.QuestionnaireQuestion;
+import com.briup.apps.poll.bean.extend.QqVM;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -103,4 +104,6 @@ public interface QqMapper {
 	void save(Qq qq);
 
 	void update(Qq qq);
+
+	List<QqVM> selectAll();
 }

@@ -9,7 +9,6 @@ import com.briup.apps.poll.bean.QqExample;
 import com.briup.apps.poll.bean.Questionnaire;
 import com.briup.apps.poll.bean.QuestionnaireExample;
 import com.briup.apps.poll.bean.QuestionnaireQuestion;
-import com.briup.apps.poll.bean.QuestionnaireQuestionExample;
 import com.briup.apps.poll.bean.extend.QuestionnaireVM;
 import com.briup.apps.poll.dao.QqMapper;
 import com.briup.apps.poll.dao.QuestionnaireMapper;

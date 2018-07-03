@@ -6,40 +6,55 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.briup.apps.poll.bean.Options;
+import com.briup.apps.poll.bean.OptionsExample;
 import com.briup.apps.poll.dao.OptionsMapper;
 import com.briup.apps.poll.service.IOptionsService;
-
-/**
- * <活着>
- * 
- * @author missinglxk 接待 仓库管理员
- */
 @Service
-public class OptionsServiceImpl implements IOptionsService {
+public class OptionsServiceImpl implements IOptionsService{
 	@Autowired
-	private OptionsMapper optionsMapper;
-
+private OptionsMapper optionsMapper;
 	@Override
-	public List<Options> findAll() {
-
-		return optionsMapper.findAll();
+	public List<Options> findAll() throws Exception {
+		OptionsExample example=new OptionsExample();
+		return  optionsMapper.selectByExample(example);
 	}
 
 	@Override
-	public void deleteById(long id) {
+	public Options findById(long id) throws Exception {
 		// TODO Auto-generated method stub
-		
+		return optionsMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public void save(Options options) {
-		// TODO Auto-generated method stub
-		optionsMapper.save(options);
+	public List<Options> query(String keywords) throws Exception {
+		OptionsExample example=new OptionsExample();
+		example.createCriteria().andLabelLike(keywords);
+		return optionsMapper.selectByExampleWithBLOBs(example);
 	}
 
 	@Override
-	public void update(Options options) {
+	public void saveOrUpdate(Options options) throws Exception {
 		// TODO Auto-generated method stub
-		optionsMapper.update(options);
+		if(options.getId()!=null){
+				optionsMapper.updateByPrimaryKey(options);
+		}else{
+			optionsMapper.insert(options);
+			
+		}
 	}
+
+	@Override
+	public void deleteById(long id) throws Exception {
+		// TODO Auto-generated method stub
+		optionsMapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public void batchDelete(List<Long> ids) throws Exception {
+		// TODO Auto-generated method stub
+		for(long id : ids){
+			optionsMapper.deleteByPrimaryKey(id);
+		}
+	}
+
 }
