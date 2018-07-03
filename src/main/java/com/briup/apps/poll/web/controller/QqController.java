@@ -17,7 +17,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 //import io.swagger.annotations.Api;
-@Api(description="问题问卷接口")
+@Api(description="QQ问卷接口")
 @RestController
 @RequestMapping("/qq")
 public class QqController {

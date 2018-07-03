@@ -12,6 +12,8 @@ import com.briup.apps.poll.bean.extend.QuestionVM;
 import com.briup.apps.poll.service.IQuestionService;
 import com.briup.apps.poll.util.MsgRespose;
 
+import io.swagger.annotations.Api;
+@Api(description="相关问题接口")
 @RestController
 @RequestMapping("/question")
 public class QuestionController {

@@ -13,8 +13,9 @@ import com.briup.apps.poll.bean.extend.QuestionnaireVM;
 import com.briup.apps.poll.service.IQuestionnaireService;
 import com.briup.apps.poll.util.MsgRespose;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
+@Api(description="相关问卷接口")
 @RestController
 @RequestMapping("/questionnaire")
 public class QuestionnaireController {

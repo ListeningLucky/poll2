@@ -12,6 +12,8 @@ import com.briup.apps.poll.bean.School;
 import com.briup.apps.poll.service.ISchoolService;
 import com.briup.apps.poll.util.MsgRespose;
 
+import io.swagger.annotations.Api;
+@Api(description="学校接口")
 @RestController
 @RequestMapping("/school")
 public class SchoolController {
