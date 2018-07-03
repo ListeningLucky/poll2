@@ -88,7 +88,7 @@ public MsgRespose saveOrUpdateQuestionnaire(Questionnaire questionnaire,long[] q
 		return MsgRespose.success("保存或更新成功", null);
 	} catch (Exception e) {
 		e.printStackTrace();
-		return MsgRespose.error("操作失败");
+		return MsgRespose.error("修改成功");
 	}
 	
 }

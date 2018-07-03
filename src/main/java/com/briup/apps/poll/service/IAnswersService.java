@@ -11,4 +11,8 @@ void save (Answers answers)throws Exception;
 void deleteById(long id)throws Exception;
 void update (Answers answers)throws Exception;
 void batchDelete(Long[] ids)throws Exception;
+void saveOrUpdate(Answers answers)throws Exception;
+//通过课调id查询属于该课调的所有答卷
+
+List<Answers> findAnswersBySurveyId(Long surveyId) throws Exception;
 }

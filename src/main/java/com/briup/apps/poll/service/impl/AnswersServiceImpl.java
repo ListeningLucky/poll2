@@ -59,4 +59,20 @@ private AnswersMapper answersMapper;
 		
 	}
 
+	@Override
+	public void saveOrUpdate(Answers answers) throws Exception {
+		if(answers.getId()==null){
+			answersMapper.updateByPrimaryKey(answers);
+		}else{
+			answersMapper.insert(answers);
+			
+		}
+	}
+
+	@Override
+	public List<Answers> findAnswersBySurveyId(Long surveyId) throws Exception {
+		AnswersExample example=new AnswersExample();
+		example.createCriteria().andSurveyIdEqualTo(surveyId);
+		return answersMapper.selectByExample(example);
+	}
 }

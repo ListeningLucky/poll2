@@ -1,17 +1,17 @@
 package com.briup.apps.poll.bean.extend;
 
-import javax.jws.soap.SOAPBinding.Use;
-
 import com.briup.apps.poll.bean.Course;
+import com.briup.apps.poll.bean.User;
 
 public class SurveyVM {
 private Long id;
+private Double averages;
 private String status;
 private String code;
 private String surveydate;
 private Course course;
 private ClazzVM clazzVM;
-private Use teacher;
+private User teacher;
 private QuestionnaireVM qnVM;
 public Long getId() {
 	return id;
@@ -49,10 +49,11 @@ public ClazzVM getClazzVM() {
 public void setClazzVM(ClazzVM clazzVM) {
 	this.clazzVM = clazzVM;
 }
-public Use getTeacher() {
+
+public User getTeacher() {
 	return teacher;
 }
-public void setTeacher(Use teacher) {
+public void setTeacher(User teacher) {
 	this.teacher = teacher;
 }
 public QuestionnaireVM getQnVM() {
@@ -61,5 +62,12 @@ public QuestionnaireVM getQnVM() {
 public void setQnVM(QuestionnaireVM qnVM) {
 	this.qnVM = qnVM;
 }
+public Double getAverages() {
+	return averages;
+}
+public void setAverages(Double averages) {
+	this.averages = averages;
+}
+
 
 }

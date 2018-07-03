@@ -20,9 +20,7 @@
    <association
    column="charge_id" 
     property="charge"
-   select="com.briup.apps.poll.dao.UserMapper.selectByPrimaryKey"
-  >
- 
+   select="com.briup.apps.poll.dao.UserMapper.selectByPrimaryKey">
    </association>
   </resultMap>
 </mapper>

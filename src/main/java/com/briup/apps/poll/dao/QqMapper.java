@@ -97,4 +97,10 @@ public interface QqMapper {
     int updateByPrimaryKey(Qq record);
 
 	void insert(QuestionnaireQuestion qq);
+
+	List<Qq> findAll();
+
+	void save(Qq qq);
+
+	void update(Qq qq);
 }

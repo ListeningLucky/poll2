@@ -18,15 +18,23 @@ public class SurveyServeyImpl implements ISurveyService{
     private SurveyMapper surveyMapper;
 @Autowired
 private SurveyVMMapper surveyVMMapper;
+
 @Override
 	public void saveOrUpdateSurvey(Survey survey) throws Exception {
-		survey.setStatus(survey.STATUS_INIT);
-		survey.setCode("");
-		Date surveyDate=new Date();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
-		String str=sdf.format(surveyDate);
-		survey.setSurveydate(str);
-		surveyMapper.insert(survey);
+		if(survey.getId()==null){
+			survey.setStatus(survey.STATUS_INIT);
+			survey.setCode("");
+			Date surveyDate=new Date();
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String str=sdf.format(surveyDate);
+			survey.setSurveydate(str);
+			surveyMapper.insert(survey);
+		}else{
+			surveyMapper.updateByPrimaryKey(survey);
+			
+		}
+		
+	
 	}
 @Override
 public List<SurveyVM> findAll() throws Exception {
@@ -35,8 +43,18 @@ public List<SurveyVM> findAll() throws Exception {
 }
 @Override
 public SurveyVM findById(long id) throws Exception {
+	
+	return surveyVMMapper.findById(id);
+}
+@Override
+public Survey findSurveyById(long id) throws Exception {
 	// TODO Auto-generated method stub
-	return surveyVMMapper.findById();
+	return surveyMapper.selectByPrimaryKey(id); 
+}
+@Override
+public List<SurveyVM> findByStatus(String status) throws Exception {
+	// TODO Auto-generated method stub
+	return surveyVMMapper.selectByStatus(status);
 }
 	
 	

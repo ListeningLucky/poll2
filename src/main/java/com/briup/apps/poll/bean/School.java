@@ -231,4 +231,9 @@ public class School {
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
+
+	public void save(School school) {
+		// TODO Auto-generated method stub
+		
+	}
 }

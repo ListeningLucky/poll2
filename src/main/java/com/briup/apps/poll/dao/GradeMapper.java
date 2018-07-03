@@ -117,4 +117,10 @@ public interface GradeMapper {
      * @mbg.generated Mon Jun 25 17:14:39 CST 2018
      */
     int updateByPrimaryKey(Grade record);
+
+	void save(Grade grade);
+
+	void update(Grade grade);
+
+	List<Grade> findAll();
 }

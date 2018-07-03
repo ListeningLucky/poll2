@@ -117,4 +117,10 @@ public interface OptionsMapper {
      * @mbg.generated Mon Jun 25 17:14:39 CST 2018
      */
     int updateByPrimaryKey(Options record);
+
+	List<Options> findAll();
+
+	void save(Options options);
+
+	void update(Options options);
 }

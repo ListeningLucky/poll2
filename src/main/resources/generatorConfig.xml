@@ -36,7 +36,7 @@
 
 	<!-- 映射配置 -->
 	 
-	<table tableName="poll_survy" domainObjectName="Survy" ></table>
+	<table tableName="poll_survey" domainObjectName="Survey" ></table>
 	
     <table tableName="poll_course" domainObjectName="Course" ></table>
     <table tableName="poll_school" domainObjectName="School" ></table>
@@ -47,7 +47,7 @@
     <table tableName="poll_question" domainObjectName="Question" ></table>
     <table tableName="poll_questionnaire" domainObjectName="Questionnaire" ></table>
     <table tableName="poll_qq" domainObjectName="Qq" ></table>
-	<table tableName="poll_survey" domainObjectName="Survey" ></table>
+	
 	<table tableName="poll_answers" domainObjectName="Answers" ></table>
    
   </context>
